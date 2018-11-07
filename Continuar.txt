@@ -1,0 +1,2 @@
+1)Continuar con users seeder 
+2)luego Continuar todas las migraciones y sus respectivos seeders
