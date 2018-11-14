@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignToAttitudesTableOnUserId extends Migration
+class TableAttitudes extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddForeignToAttitudesTableOnUserId extends Migration
     public function up()
     {
         Schema::table('attitudes', function(Blueprint $table){
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->change();
         });
     }
 
@@ -25,8 +25,6 @@ class AddForeignToAttitudesTableOnUserId extends Migration
      */
     public function down()
     {
-        Schema::table('attitudes', function(Blueprint $table){
-            $table->dropForeign(['user_id']);
-        });
+        //
     }
 }
