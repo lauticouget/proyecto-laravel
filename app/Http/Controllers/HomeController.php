@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //  $this->middleware('auth');
     }
 
     /**
@@ -24,5 +25,10 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function avg($id)
+    {
+        User::selectRaw('avg(attitudes.rated) as ratedAttitude, users.*')->join('attitudes', 'users.id','=', 'attitudes.user_id')->where('users.id' , $id )->groupBy('users.id')->first();
     }
 }

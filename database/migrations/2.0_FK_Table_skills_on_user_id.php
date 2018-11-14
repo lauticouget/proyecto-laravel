@@ -25,6 +25,9 @@ class AddForeignKeyToTableSkillsOnUserId extends Migration
      */
     public function down()
     {
-        $table->dropForeign(['user_id']);
+
+        Schema::table('skills', function(Blueprint $table){
+            $table->dropForeign(['user_id']);
+        });    
     }
 }

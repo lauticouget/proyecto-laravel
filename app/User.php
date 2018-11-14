@@ -33,4 +33,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Team::class);
     }
+
+    public function attitudes()
+    {
+        return $this->hasMany(Attitude::class);
+    }
 }

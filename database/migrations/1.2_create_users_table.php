@@ -16,11 +16,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $id = $table->increments('id');
-
-            $avgSk = Skill::all()->where('user_id', $id)->avg('rated');
-            $avgAt = Attitude::all()->where('user_id', $id)->avg('rated');
-
+            
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
@@ -29,16 +25,12 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->tinyInteger('height');
-            $table->double('attitude', 2, 1)->default(2.0)->storeAs($avgAt);
-            $table->double('skill', 2, 1)->default(2.0)->storeAs($avgSk);
+            $table->unsignedSmallInteger('height');
             $table->string('favorite_position');
             $table->string('strong_foot');
             $table->string('location');
             $table->string('profile_img_path')->nullable();
-            $table->string('phone',10)->unique();
-
-
+            $table->bigInteger('phone')->unique()->signed();
         });
     }
 

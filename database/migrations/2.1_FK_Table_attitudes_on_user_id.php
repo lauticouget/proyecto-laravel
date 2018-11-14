@@ -25,6 +25,8 @@ class AddForeignToAttitudesTableOnUserId extends Migration
      */
     public function down()
     {
-        $table->dropForeign(['user_id']);
+        Schema::table('attitudes', function(Blueprint $table){
+            $table->dropForeign(['user_id']);
+        });
     }
 }
