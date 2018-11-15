@@ -1,29 +1,33 @@
 @extends('layouts.master')
 
 @section('test')
+
 <div class="container">
-    <div class="content">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="col-md-4 col-md-offset-4">
-                    <form action={{ route('calendar.save') }} method="post">
-                    @csrf
-                    <div class="input-group date #basic_example_1 datePicker">
-                        <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th "></i></span>
+        <div class="row">
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
                     </div>
-                    </form>
                 </div>
             </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker1').datetimepicker();
+                });
+            </script>
         </div>
     </div>
-</div>
-
 
 
 <script>
-    
-
-    $('#.datePicker').datetimepicker();
+  $(function() {
+  $('.datetimepicker1').datetimepicker({
+    language: 'pt-BR'
+  });
+});
 </script>
-
 @endsection
