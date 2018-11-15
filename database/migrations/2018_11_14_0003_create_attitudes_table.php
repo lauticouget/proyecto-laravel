@@ -17,7 +17,7 @@ class CreateAttitudesTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->tinyinteger('rated');
+            $table->integer('rated');
             $table->integer('user_id')->unsigned();
         });
     }

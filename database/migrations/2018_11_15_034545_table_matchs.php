@@ -13,7 +13,7 @@ class TableMatchs extends Migration
      */
     public function up()
     {
-        Schema::table('matchs', function(Blueprint $table){
+        Schema::table('matches', function(Blueprint $table){
             $table->foreign('team1_id')->references('id')->on('teams')->change();
             $table->foreign('team2_id')->references('id')->on('teams')->change();
             $table->foreign('score1_id')->references('id')->on('scores')->change();
