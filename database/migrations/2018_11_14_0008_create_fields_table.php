@@ -20,6 +20,8 @@ class CreateFieldsTable extends Migration
             $table->string('location');
             $table->string('adress');
             $table->string('photopath');
+            $table->integer('owner_id')->unsigned();
+            $table->foreign('owner_id')->references('id')->on('owners');
         });
     }
 
