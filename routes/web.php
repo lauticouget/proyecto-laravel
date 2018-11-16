@@ -20,4 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/avg/{id}', 'HomeController@avg');
 Route::get('/calendar', 'calendarController@index')->name('calendar.index');
-Route::post('/calendar/save', 'calendarController@store')->name('calendar.save');
+Route::post('/calendar/test', 'calendarController@store')->name('calendar.test');
