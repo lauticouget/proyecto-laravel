@@ -13,7 +13,7 @@ class CreateMatchsTable extends Migration
      */
     public function up()
     {
-        Schema::create('matchs', function (Blueprint $table) {
+        Schema::create('matches', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
