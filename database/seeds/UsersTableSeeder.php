@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
+use Faker\Generator as Faker;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,10 +13,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // factory(User::class, 20)->create();
-
-        factory(User::class, 20)->create()->each(function ($user) {
-            $user->role()->attach($faker->numberBetween(1,2));
+        factory(User::class, 20)->create()->each(function ($user){
+            $user->role()->attach(rand(1,2));
         });
 
     }

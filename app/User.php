@@ -18,7 +18,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'email', 'password',
+        'last_name',
+        'height',
+        'favorite_position',
+        'strong_foot',
+        'location',
+        'profile_img_path',
+        'phone',
     ];
 
     /**
@@ -30,17 +37,17 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function teams()
+    public function team()
     {
         return $this->belongsToMany(Team::class);
     }
 
-    public function attitudes()
+    public function attitude()
     {
         return $this->hasMany(Attitude::class);
     }
 
-    public function roles()
+    public function role()
     {
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
@@ -51,5 +58,10 @@ class User extends Authenticatable
             return true;
         }
         return false;
+    }
+
+    public function avgAtt()
+    {
+        $this->attitude()->all()->avg()->get();
     }
 }
