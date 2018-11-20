@@ -7,6 +7,10 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Team;
 use App\Role;
+use App\Attitude;
+use Illuminate\Support\Facades\DB;
+
+
 
 class User extends Authenticatable
 {
@@ -60,8 +64,30 @@ class User extends Authenticatable
         return false;
     }
 
+    public function rated()
+    {
+        return $this->attitude()->rated;
+    }
+
     public function avgAtt()
     {
-        $this->attitude()->all()->avg()->get();
+        $id = $this->id;
+        $avgAtt = DB::table('attitudes')
+        ->select(DB::raw('ROUND(avg(rated),1) as avgAtt'))
+        ->where('user_id', '=', $id)
+        ->first();
+        $avgAtt = $avgAtt->avgAtt;
+        return $avgAtt;
+    }
+
+    public function avgSkill()
+    {
+        $id = $this->id;
+        $avgSkill = DB::table('Skills')
+        ->select(DB::raw('ROUND(avg(rated),1) as avgSkill'))
+        ->where('user_id', '=', $id)
+        ->first();
+        $avgSkill = $avgSkill->avgSkill;
+        return $avgSkill;
     }
 }

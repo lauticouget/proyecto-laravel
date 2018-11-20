@@ -11,6 +11,7 @@ use App\Score;
 use App\Team;
 use App\Skill;
 use App\Attitude;
+use Illuminate\Support\Facades\DB;
 
 class testController extends Controller
 {
@@ -105,7 +106,7 @@ class testController extends Controller
         $teams = Team::all();
         $skills = Skill::all();
         $attitudes = Attitude::all();
-
+        
         return view('testing', compact('users', 'fields', 'matches', 'roles', 'scores', 'teams', 'skills', 'attitudes'));
     }
 }

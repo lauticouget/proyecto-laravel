@@ -9,6 +9,6 @@ class Attitude extends Model
 {
     public function user()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToOne(User::class);
     }
 }
