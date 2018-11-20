@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Team;
+use App\Role;
 
 class User extends Authenticatable
 {
@@ -17,7 +18,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'email', 'password',
+        'last_name',
+        'height',
+        'favorite_position',
+        'strong_foot',
+        'location',
+        'profile_img_path',
+        'phone',
     ];
 
     /**
@@ -29,13 +37,31 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function teams()
+    public function team()
     {
         return $this->belongsToMany(Team::class);
     }
 
-    public function attitudes()
+    public function attitude()
     {
         return $this->hasMany(Attitude::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsToMany(Role::class)->withTimestamps();
+    }
+
+    public function hasRole($role)
+    {
+        if ($this->roles()->where('name', $role)->first()) {
+            return true;
+        }
+        return false;
+    }
+
+    public function avgAtt()
+    {
+        $this->attitude()->all()->avg()->get();
     }
 }

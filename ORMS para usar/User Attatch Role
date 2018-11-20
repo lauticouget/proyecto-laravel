@@ -1,0 +1,2 @@
+user->roles()->attach(Role::where('name', 'player')->first());
+user->roles()->attach(Role::where('name', 'admin')->first());

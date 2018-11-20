@@ -18,6 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/home/avg/{id}', 'HomeController@avg');
 Route::get('/calendar', 'calendarController@index')->name('calendar.index');
 Route::post('/calendar/test', 'calendarController@store')->name('calendar.test');
+
+Route::get('/test', 'testController@navBar');
+Route::get('/test/allall', 'testController@allEntities');
