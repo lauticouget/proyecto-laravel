@@ -27,8 +27,5 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function avg($id)
-    {
-        User::selectRaw('avg(attitudes.rated) as ratedAttitude, users.*')->join('attitudes', 'users.id','=', 'attitudes.user_id')->where('users.id' , $id )->groupBy('users.id')->first();
-    }
+
 }

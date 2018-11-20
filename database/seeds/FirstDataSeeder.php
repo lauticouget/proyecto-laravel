@@ -19,7 +19,6 @@ class FirstDataSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 20)->create();
         factory(Attitude::class, 20)->create();
         factory(Owner::class, 20)->create();
         factory(skill::class, 20)->create();
