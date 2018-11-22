@@ -4,22 +4,22 @@
 			<div class="row">
 				<div class="col-md-3">
 					<a class="text-left">
-                        footer
+                        Quienes somos
                     </a>
 				</div>
 				<div class="col-md-3">
                     <a class="text-left">
-                        footer
+                        Preguntas Frecuentes
                     </a>
 				</div>
 				<div class="col-md-3">
                     <a class="text-left">
-                        footer
+                        Contactenos
                     </a>
 				</div>
 				<div class="col-md-3">
                     <a class="text-left">
-                        footer
+                        Como Funciona
                     </a>
 				</div>
 			</div>

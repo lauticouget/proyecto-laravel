@@ -2,27 +2,28 @@
 
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <!-- profile image -->
-                <h3>Hola,</h3>
-                <!-- information -->
-                <img class="centered" src="">
-                <p>Nombre: </p>
-                <br>
-                <p>Rating:</p> 
-                <br>
-                <p>Informacion de contacto:</p>
-                <br>
-                <a class="button">Editar</a>
-                <!-- ADMIN -->
-                <p>Eliminar</p>
-                <br>
-            </div>
-        </div>
-    </div>
+<br>
+<div class="offset-1">
+    <!-- Foto de perfil -->
+    <img src=''>
+    <h2>{{ $player->firstName . $player->lastName}} </h2>
+    <h4>Rating: {{ $player->rating }}</h4>
+    <h4>Barrio: {{ $player->zone }}</h4>
+    <h4>Telefono: {{ $player->contact}}</h4>
+    <h4>Email: {{ $player->email}}</h4>
+    <h4>Pie Fuerte: {{ $player->foot}}</h4>
+    <h4>Altura: {{ $player->height}}</h4>
+    <h4>Posicion: {{ $player->position}}</h4>
+    <a class='btn' href='#'>Hacer reserva:</a>
+    <br>
+    <!-- ADMIN / PLAYER USER -->
+    <a class="btn" href="#">Editar</a>
+    <br>
+    <!-- ADMIN -->
+    <a class="btn" href="#">Eliminar</a>
+    <br>
+
+    <a href="#">Volver</a>
 </div>
 @endsection
 

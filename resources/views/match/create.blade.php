@@ -6,19 +6,19 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <!-- form -->
-                <form>
+                <form class="form-group" action="" method="post" enctype="multipart/form-data">
                     <img class="centered" src="">
-                    <p>*Seleccionar Cancha:</p>
-                    <br>
-                    <p>*Seleccionar Fecha y Horario:</p>
+                    <div class="form-group">
+                        <label for="field">Seleccionar Cancha:</label>
+                        <select class="form-control" id="fieldSelect" name="provincia">
+                            <option>Seleccionar...</option>
+                            <!-- JS PARA DESPLEGAR TODAS LAS CANCHAS DISPONIBLES -->
+                            <!-- VISTA DE EDICION, PREVIO SELECCIONADO -->
+                        </select>
+                    </div>
+                    <label for="field">Seleccionar Horario:</label>
                     <!-- CALENDAR -->
-                    <br>
-                    <p>Nombre del partido</p>
-                    <br>
-                    <p>Lista 1:</p>
-                    <br>
-                    <p>Lista 2:</p>
+                    <!-- VISTA DE EDICION, PREVIO SELECCIONADO -->
                     <br>
                     <a class="button">Crear</a>
                     <br>

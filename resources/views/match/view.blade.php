@@ -9,21 +9,33 @@
                 <!-- form -->
                 <ul>
                     <img class="centered" src="">
-                    <li>*Cancha:</li>
+                    <li>*Cancha: {{ $match->field}}</li>
                     <br>
-                    <li>*Fecha y Horario:</li>
+                    <li>*Fecha y Horario: {{ $match->horary }}</li>
                     <!-- CALENDAR -->
                     <br>
-                    <li>Nombre del Partido</li>
-                    <br>
                     <li>Lista 1:</li>
-                    <a class="button">Sumarse!</a>
+                    <ol>
+                        @foreach ($team1 as $player)
+                            <li>
+                            <p>{{$player->firstName . " " . $player->lastName}}</p>
+                            </li>
+                        @endforeach
+                    </ol>
                     <br>
                     <li>Lista 2:</li>
+                    <ol>
+                        @foreach ($team2 as $player)
+                            <li>
+                            <p>{{$player->firstName . " " . $player->lastName}}</p>
+                            </li>
+                        @endforeach
+                        </ol>
                     <a class="button">Sumarse!</a>
                     <br>
                     <!-- ADMIN & CREADOR -->
-                    <a class="button">Crear</a>
+                    <a class='btn'>Editar</a>
+                    <a class='btn'>Cancelar Partido</a>
                     <br>
                 </form>
             </div>
