@@ -24,13 +24,9 @@
 </head>
 <body>
     <div >
-        @yield('test')
+        @yield('navBar')
+        @yield('content')
     </div>
-
-
-
-   
-
 
 </body>
 </html>

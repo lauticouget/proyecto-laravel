@@ -16,18 +16,21 @@ class CreateTeamsTable extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
             $table->integer('goalkeeper_id')->unsigned();
-            $table->foreign('goalkeeper_id')->references('id')->on('users')->change();
+            $table->foreign('goalkeeper_id')->references('id')->on('users')->unique()->change();
+
             $table->integer('player1_id')->unsigned();
-            $table->foreign('player1_id')->references('id')->on('users')->change();
+            $table->foreign('player1_id')->references('id')->on('users')->unique()->change();
+
             $table->integer('player2_id')->unsigned();
-            $table->foreign('player2_id')->references('id')->on('users')->change();
+            $table->foreign('player2_id')->references('id')->on('users')->unique()->change();
+
             $table->integer('player3_id')->unsigned();
-            $table->foreign('player3_id')->references('id')->on('users')->change();
+            $table->foreign('player3_id')->references('id')->on('users')->unique()->change();
+
             $table->integer('captain_id')->unsigned();
-            $table->foreign('captain_id')->references('id')->on('users')->change();
-
-
+            $table->foreign('captain_id')->references('id')->on('users')->unique()->change();
 
         });
     }

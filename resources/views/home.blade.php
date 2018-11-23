@@ -1,8 +1,10 @@
-@php
+{{-- @php
     dd(session('status'))
-@endphp
+@endphp --}}
 
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
+@extends('includes.head')
+@extends('includes.nav')
 
 @section('content')
 <div class="container">
@@ -25,3 +27,5 @@
     </div>
 </div>
 @endsection
+
+@extends('includes.footer')
