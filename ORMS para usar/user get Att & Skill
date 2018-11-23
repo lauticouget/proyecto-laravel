@@ -1,1 +1,0 @@
- User::selectRaw('avg(attitudes.rated) as ratedAttitude, users.*')->join('attitudes', 'users.id','=', 'attitudes.user_id')->where('users.id' , $id )->groupBy('users.id')->first();
