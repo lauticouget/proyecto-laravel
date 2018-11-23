@@ -15,15 +15,17 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
+                <!-- form -->
                 <form class="form-group" action="" method="post" enctype="multipart/form-data">
+                    <img class="centered" src="">
                     <div class="form-group">
-                        <label for="firstName">Nombre:</label>
-                        <input type="text" name="firstName" value="{{ old("firstName") }}" class="form-control">
+                        <label for="fieldName">Nombre de la cancha:</label>
+                        <input type="text" name="fieldName" value="{{ old("fieldName") }}" class="form-control">
                     </div>
                     <br>
                     <div class="form-group">
-                        <label for="lasttName">Apellido:</label>
-                        <input type="text" name="lastName" value="{{ old("lastName") }}" class="form-control">
+                        <label for="address">Direccion:</label>
+                        <input type="text" name="address" value="{{ old("address") }}" class="form-control">
                     </div>
                     <br>
                     <div class="form-group">
@@ -41,7 +43,7 @@
                         <input type="text" name="zone" value="{{ old("zone") }}" class="form-control">
                     </div>
                     <br>
-                    <p>*Subir foto de perfil:</p>
+                    <p>*Subir fotos (minimo una):</p>
                     <!-- EL BOTON TIENE QUE LINKEAR AL CONTROLADOR PARA QUE LO AGREGUE A LA BASE -->
                     <a class="button" href="#">Registrarse</a>
                     <br>

@@ -22,7 +22,7 @@
                         </li>
                     <!-- LOGED -->
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Bienvenido, {{ /*NAME*/ }}</a>
+                    <a class="nav-link" href="#">Bienvenido, {{ $player->firstName }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">MI CUENTA</a>
