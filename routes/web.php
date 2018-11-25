@@ -26,7 +26,7 @@ Route::group(['middleware' => 'App\Http\Middleware\playerMiddleware'], function(
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
