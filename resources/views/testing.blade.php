@@ -12,6 +12,8 @@
                       {{ $user->avgAtt() }}
                 Skill:
                       {{ $user->avgSkill() }}
+                otra cosa:
+                      {{ $user->password }}
               </div>
               <div class="row">
                   

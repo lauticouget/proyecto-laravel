@@ -1,15 +1,16 @@
-@extends('layouts.master')
-
-@section('navBar')
-    
-
 @if(Auth::guest())
-    <div>Navbar Invitado</div>
-@elseif(Auth::user()->hasRole('admin'))
-    <div>Navbar como administrador</div>
+    <div>
+        <UL>
+            <li class="nav-item">
+                <a class="nav-link" href="#">INICIAR SESION</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">REGISTRARSE</a>
+            </li>
+        </UL>
+    </div>
+@elseif(Auth::user()->hasRole('owner'))
+    <div>Navbar como owner </div>
 @elseif(Auth::user()->hasRole('player'))
     <div>Navbar Jugador</div>
-
 @endif
-
-@endsection

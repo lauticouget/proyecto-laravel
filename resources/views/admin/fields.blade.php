@@ -1,25 +1,26 @@
-<!-- LISTADO DE CANCHAS PARA ADMINISTRAR
-    EDITAR Y ELIMINAR -->
+@extends('layouts.master')
 
-    @extends('includes.head')
-    @extends('includes.nav')
-    
-    @section('fieldsList')
-    <h2>LISTADO DE CANCHAS</h2>
-    <ul>
-    @foreach ($fields as $flied)
-        <li><a href='#'>{{$field->firstName}} . {{$field->lastName}}</a>
-            <!-- EL BOTON TIENE QUE ABRIR UN POPUP PARA CONFIRMAR LA ELIMINACION Y CONECTARSE AL CONTROLADOR PARA DESACTIVARLO DE LA BASE -->
-            <a class='button' href='#'>Eliminar usuario</a>
-            <!-- EL BOTON TIENE QUE DIRIGIRSE A LA VISTA DE EDICION DE ESA CANCHA -->
-            <a class='button' href='#'>Editar usuario</a> 
-        </li>
-    @endforeach
-    
-    </ul>
-    {{ $fields = DB::table('fields')->simplePaginate(15) }}
-
-        
-    @endsection
-    
-    @extends('includes.footer')
+@section('content')
+<h2>LISTADO DE CANCHAS</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col"> location </th>
+            <th scope="col"> adress </th>
+            <th scope="col"> owner </th>
+            <th scope="col"> photopath </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($fields as $field)
+        <tr>
+            <th scope="row">{{ $field->id }}</th>
+            <td>{{ $field->adress }}</td>
+            <td>{{ asset($field->photopath) }}</td>
+        </tr>
+        @endforeach
+        {{ $fields->links() }}
+    </tbody>
+</table>
+@endsection

@@ -8,12 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="nav">
-                    <li class="nav-item button">
-                        <a class="nav-link active" href="{{ route('home') }}">INICIO</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">CANCHAS</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="#">CREAR RESERVA</a>
                     </li>
@@ -21,19 +16,9 @@
                             <a class="nav-link" href="#">BUSCAR PARTIDOS</a>
                         </li>
                     <!-- LOGED -->
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Bienvenido, {{ $player->firstName }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">MI CUENTA</a>
-                    </li>
+                    
                     <!-- NOT LOGED -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">INICIAR SESION</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">REGISTRARSE</a>
-                    </li>
+                    
                 </ul>
             </div>
         </div>

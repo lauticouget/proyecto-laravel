@@ -1,10 +1,6 @@
-{{-- @php
-    dd(session('status'))
-@endphp --}}
 
-{{-- @extends('layouts.app') --}}
-@extends('includes.head')
-@extends('includes.nav')
+
+@extends('layouts.app') 
 
 @section('content')
 <div class="container">

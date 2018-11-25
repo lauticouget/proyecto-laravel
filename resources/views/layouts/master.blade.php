@@ -24,8 +24,9 @@
 </head>
 <body>
     <div >
-        @yield('navBar')
+        @include('navBar')
         @yield('content')
+        {{-- @include('includes.footer') --}}
     </div>
 
 </body>

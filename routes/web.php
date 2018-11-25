@@ -10,6 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'App\Http\Middleware\ownerMiddleware'], function(){
+       //
+    });
+    
+Route::group(['middleware' => 'App\Http\Middleware\playerMiddleware'], function(){
+       //
+    });
+    
+
+
+
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,3 +39,5 @@ Route::post('/calendar/test', 'calendarController@store')->name('calendar.test')
 
 Route::get('/test', 'testController@navBar');
 Route::get('/test/allall', 'testController@allEntities');
+
+Route::get('/fields', 'fieldController@index')->name('fields.index');
