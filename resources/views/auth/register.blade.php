@@ -63,7 +63,7 @@
 
                         <div class="form-group row">
                             <label for=”type” class="col-md-4 col-form-label text-md-right" >User Type:</label>
-                            <div class=”col-md-6">
+                            <div class="col-md-6">
                                 <select class=”form-control” name='role' id=”type”>
                                     <option value=”owner”>Owner</option>
                                     <option value=”player”>Player</option>

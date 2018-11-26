@@ -29,15 +29,12 @@ Route::get('/', function () {
     return view('home');
 });
 
-Auth::routes();
+Route::get('/login', '\App\Http\Controllers\Auth\LoginController@login');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/home/avg/{id}', 'HomeController@avg');
-Route::get('/calendar', 'calendarController@index')->name('calendar.index');
-Route::post('/calendar/test', 'calendarController@store')->name('calendar.test');
+Route::get('/register', 'userController@create');
 
-Route::get('/test', 'testController@navBar');
-Route::get('/test/allall', 'testController@allEntities');
+Route::post('/register/store', 'userController@store')->name('user.store');
 
-Route::get('/fields', 'fieldController@index')->name('fields.index');
+Route::get('/chooseRole', 'chooseRole@create')->name('chooseRole.create');
