@@ -17,7 +17,7 @@ class owner
     {
         if ($request->user() && $request->user()->type != 'owner'){
 
-            return new Response(view('unauthorized')->with('role', 'OWNER'));
+            return redirect('/');
         }
         return $next($request);
     }

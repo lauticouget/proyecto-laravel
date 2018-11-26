@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
+
 
 class userController extends Controller
 {
@@ -24,7 +26,7 @@ class userController extends Controller
      */
     public function create()
     {
-        return view('register.user');
+        return view('user.register');
     }
     
 
@@ -45,15 +47,14 @@ class userController extends Controller
 
         $user = new User([
             'first_name' => $request->input("first_name"),
-            'password' => $request->input("password"),
+            'password' =>  Hash::make($request['password']),
             'email' => $request->input("email")
         ]);
-
-        $user->save();
-
-        return redirect('/login')->with('success', 'User Created');
+            $successfullyLogin = 'User Created Successfully';
+        return view('user.login', compact('successfullyLogin'));
     }
 
+   
     /**
      * Display the specified resource.
      *

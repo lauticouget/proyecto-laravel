@@ -10,8 +10,8 @@
                 <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Start Now!</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown1">
-                            <li class="dropdown-item" ><a href="/register" class="dropdown-item" aria-expanded="false">Register</a></li>
-                            <li class="dropdown-item "><a href="/login" class="dropdown-item" aria-expanded="false">Login</a></li>
+                            <li class="dropdown-item" ><a href="/user/register" class="dropdown-item" aria-expanded="false">Register</a></li>
+                            <li class="dropdown-item "><a href="/user/login" class="dropdown-item" aria-expanded="false">Login</a></li>
                         </ul>
                 </li>
                 @endguest

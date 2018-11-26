@@ -33,8 +33,12 @@ Route::get('/login', '\App\Http\Controllers\Auth\LoginController@login');
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/register', 'userController@create');
+Route::get('/user/login', function(){
+    return view('user.login');
+})->name('user.login');
 
-Route::post('/register/store', 'userController@store')->name('user.store');
+Route::get('/user/register', 'userController@create')->name('user.register');
+
+Route::post('/user/store', 'userController@store')->name('user.store');
 
 Route::get('/chooseRole', 'chooseRole@create')->name('chooseRole.create');
