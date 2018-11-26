@@ -17,6 +17,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('register/player', function() {
+    return view('register.player');
+});
+Route::get('register/field', function() {
+    return view('register.field');
+});
+Route::post('register/player/create', 'RegisterController@create');
+Route::post('register/player/store', 'RegisterController@store');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/home/avg/{id}', 'HomeController@avg');

@@ -49,9 +49,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'height'=> 'int',
+            'favorite_position'=> 'required|string|max:200',
+            'strong_foot' => 'required|string',
+            'location' => 'required|string',
+            'phone' => 'required|int',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'profile_img_path' => 'string',
         ]);
     }
 
@@ -65,8 +72,26 @@ class RegisterController extends Controller
     {
         return User::create([
             'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
+            'height' => $data['height'],
+            'favorite_position' => $data['favorite_position'],
+            'strong_foot' => $data['location'],
+            'location' => $data['location'],
+            'profile_img_path' => $data['profile_img_path'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  array $data
+     * @return \App\User
+     */
+    public function store(Request $data)
+    {
+        User::create($data->all());
+        return redirect()->route('home');
     }
 }

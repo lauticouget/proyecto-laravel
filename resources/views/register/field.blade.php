@@ -1,58 +1,94 @@
-@extends('includes.nav')
-
+@extends('layouts.app')
 
 @section('content')
-@if(count($errors) > 0)
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <div class="card">
-                <!-- form -->
-                <form class="form-group" action="" method="post" enctype="multipart/form-data">
-                    <img class="centered" src="">
-                    <div class="form-group">
-                        <label for="fieldName">Nombre de la cancha:</label>
-                        <input type="text" name="fieldName" value="{{ old("fieldName") }}" class="form-control">
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="address">Direccion:</label>
-                        <input type="text" name="address" value="{{ old("address") }}" class="form-control">
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="contactData">Informacion de contacto:</label>
-                        <input type="text" name="contactData" value="{{ old("contactData") }}" class="form-control">
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" name="email" value="{{ old("email") }}" class="form-control">
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="zone">Barrio</label>
-                        <input type="text" name="zone" value="{{ old("zone") }}" class="form-control">
-                    </div>
-                    <br>
-                    <p>*Subir fotos (minimo una):</p>
-                    <!-- EL BOTON TIENE QUE LINKEAR AL CONTROLADOR PARA QUE LO AGREGUE A LA BASE -->
-                    <a class="button" href="#">Registrarse</a>
-                    <br>
-                    <!-- SI EL REGISTRO FUE EXITOSO, DEBE MOSTRAR UN POPUP DE EXITO Y DIRIGIR A LA HOME -->
-                </form>
+                <div class="card-header">{{ __('Register') }}</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="first_name" class="col-md-4 col-form-label text-md-right">Nombre de la cancha:</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+
+                                @if ($errors->has('name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="location" class="col-md-4 col-form-label text-md-right">Barrio:</label>
+
+                            <div class="col-md-6">
+                                <input id="location" type="text" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}" name="location" value="{{ old('location') }}" required autofocus>
+
+                                @if ($errors->has('location'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('location') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="adress" class="col-md-4 col-form-label text-md-right">Direccion:</label>
+
+                            <div class="col-md-6">
+                                <input id="adress" type="text" class="form-control{{ $errors->has('adress') ? ' is-invalid' : '' }}" name="adress" value="{{ old('adress') }}" required autofocus>
+
+                                @if ($errors->has('adress'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('adress') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- subir image -->
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
-
-@extends('includes.footer')

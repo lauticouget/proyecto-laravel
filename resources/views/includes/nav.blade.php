@@ -14,13 +14,13 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#">CANCHAS</a>
                     </li>
+                    <!-- LOGED -->
                     <li class="nav-item">
                         <a class="nav-link" href="#">CREAR RESERVA</a>
                     </li>
                     <li class="nav-item">
                             <a class="nav-link" href="#">BUSCAR PARTIDOS</a>
                         </li>
-                    <!-- LOGED -->
                     <li class="nav-item">
                     <a class="nav-link" href="#">Bienvenido, {{ $player->firstName }}</a>
                     </li>
