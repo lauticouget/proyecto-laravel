@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="container shadow-lg p-3 mb-5 bg-white rounded">
-    <form action="{{ route('chooseRole.update') }}" method="post">
-    {!! method_field('patch') !!}
+    <form action="{{ route('chooseRole.store') }}" method="post">
     @csrf
     <div class="span ">
             <h3 class="h3"> 

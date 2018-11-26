@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class chooseRole extends Controller
 {
@@ -35,15 +36,20 @@ class chooseRole extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'role' => 'required|',
         ]);
+        $user = Auth::User();
+        $user = User::find($user->id);
 
-        Auth::user()->role($request->input('role'));
+        dd($user);
+
+        $user = Auth::user()->role($request->input('role'));
 
         $user->save();
 
-        return redirect('/register/chooseRole')->with('success', 'Stock has been added');
+        return view('/')->with(compact('user'));
     }
 
     /**
@@ -92,6 +98,7 @@ class chooseRole extends Controller
             return redirect()->route('player.register');
         }
     }
+
 
     /**
      * Remove the specified resource from storage.

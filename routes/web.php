@@ -10,35 +10,58 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'App\Http\Middleware\ownerMiddleware'], function(){
-       //
-    });
-    
-Route::group(['middleware' => 'App\Http\Middleware\playerMiddleware'], function(){
-       //
-    });
-    
 
 
 
 
+//----------------- Guest/User(ALL) 
 
+Route::get('/', 'HomeController@home')->name('home');
+Auth::routes();
 
+//----------------- NON AUTH
+Route::middleware(['isGuest'])->group(function () {
+    Route::get('/user/register', 'userController@create')->name('user.register');
+    Route::post('/user/store', 'userController@store')->name('user.store');
+    Route::get('/user/login', function(){return view('user.login');})->name('user.login');
 
-Route::get('/', function () {
-    return view('home');
+  
+    Route::get('/login', '\App\Http\Controllers\Auth\LoginController@login');
 });
 
-Route::get('/login', '\App\Http\Controllers\Auth\LoginController@login');
 
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('/user/login', function(){
-    return view('user.login');
-})->name('user.login');
 
-Route::get('/user/register', 'userController@create')->name('user.register');
 
-Route::post('/user/store', 'userController@store')->name('user.store');
+Route::middleware(['guestRedirect'])->group(function () {
 
-Route::get('/chooseRole', 'chooseRole@create')->name('chooseRole.create');
+    Route::middleware(['chooseRole'])->group(function () {
+
+        Route::middleware(['owner'])->group(function () {
+        
+        });
+        Route::middleware(['player'])->group(function () {
+        
+        });
+    });
+
+    Route::get('/chooseRole', 'chooseRole@create')->name('chooseRole.create');
+    Route::post('/chooseRole/store', 'chooseRole@store')->name('chooseRole.store');
+
+
+    Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+

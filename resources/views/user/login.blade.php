@@ -9,11 +9,12 @@
                 <p>Please enter your email and password</p>
             </div>
             <form method="post" action="/login" id="Login">
+                @csrf
                 <div class="form-group col-4">
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+                    <input name="email" type="email" class="form-control" id="inputEmail" placeholder="Email Address">
                 </div>
                 <div class="form-group col-4">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
                 </div>
                 <div class="forgot">
                     <a href="#">Forgot password?</a>
@@ -33,5 +34,4 @@
     </div>
 @endisset
 
-<div class="alert-"></div>
 @endsection
