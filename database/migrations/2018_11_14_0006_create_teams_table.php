@@ -17,6 +17,8 @@ class CreateTeamsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
+            $table->string('name');
+
             $table->integer('goalkeeper_id')->unsigned();
             $table->foreign('goalkeeper_id')->references('id')->on('users')->unique()->change();
 

@@ -7,6 +7,7 @@
         <div class="col-md-12">
             <div class="card">
                 <form class="form-group" action="" method="post" enctype="multipart/form-data">
+                    @csrf
                     <img class="centered" src="">
                     <div class="form-group">
                         <label for="field">Seleccionar Cancha:</label>

@@ -14,8 +14,15 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         factory(User::class, 20)->create()->each(function ($user){
-            $user->role()->attach(rand(1,2));
+            $user->roles()->attach(rand(1,2));
         });
 
+        $lauti = new User([
+            'first_name' => 'Lauti',
+            'password' =>  Hash::make('asdasd'),
+            'email' => 'lauticouget@gmail.com',
+        ]);
+
+        $lauti->save();
     }
 }

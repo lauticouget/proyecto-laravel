@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Field;
+use App\Match;
 
-class fieldController extends Controller
+class matchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class fieldController extends Controller
      */
     public function index()
     {
-        $fields = Field::paginate(5);
-        return view('admin.fields', compact('fields'));
+        $matches = Match::paginate(5);
+        return view('match.index', compact('matches'));
     }
 
     /**
