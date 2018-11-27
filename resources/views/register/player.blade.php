@@ -136,14 +136,14 @@
 
                         <!-- subir image -->
                         <div class="form-group row">
-                                <label for="profile_image_path" class="col-md-4 col-form-label text-md-right">imagen:</label>
+                                <label for="profile_img_path" class="col-md-4 col-form-label text-md-right">imagen:</label>
     
                                 <div class="col-md-6">
-                                    <input id="profile_image_path" type="text" class="form-control{{ $errors->has('profile_image_path') ? ' is-invalid' : '' }}" name="profile_image_path" value="{{ old('profile_image_path') }}" required autofocus>
+                                    <input id="profile_img_path" type="text" class="form-control{{ $errors->has('profile_img_path') ? ' is-invalid' : '' }}" name="profile_img_path" value="{{ old('profile_img_path') }}" required autofocus>
     
-                                    @if ($errors->has('profile_image_path'))
+                                    @if ($errors->has('profile_img_path'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('profile_image_path') }}</strong>
+                                            <strong>{{ $errors->first('profile_img_path') }}</strong>
                                         </span>
                                     @endif
                                 </div>

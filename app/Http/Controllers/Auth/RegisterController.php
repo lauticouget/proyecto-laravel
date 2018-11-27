@@ -94,4 +94,6 @@ class RegisterController extends Controller
         User::create($data->all());
         return redirect()->route('home');
     }
+
+    
 }

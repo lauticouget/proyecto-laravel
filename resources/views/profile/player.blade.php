@@ -1,4 +1,4 @@
-@extends('includes.nav')
+@extends('layouts.master')
 
 
 @section('content')
@@ -26,5 +26,3 @@
     <a href="#">Volver</a>
 </div>
 @endsection
-
-@extends('includes.footer')

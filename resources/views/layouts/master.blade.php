@@ -26,7 +26,7 @@
     <div >
         @yield('navBar')
         @yield('content')
+        @yield('footer')
     </div>
-
 </body>
 </html>

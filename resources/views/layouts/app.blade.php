@@ -80,7 +80,11 @@
 
         <main class="py-4">
             @yield('content')
+            @yield('footer')
         </main>
+    </div>
+    <div>
+    
     </div>
 </body>
 </html>
