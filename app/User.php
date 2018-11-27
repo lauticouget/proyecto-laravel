@@ -52,7 +52,7 @@ class User extends Authenticatable
         return $this->hasMany(Attitude::class);
     }
 
-    public function role()
+    public function roles()
     {
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
@@ -101,7 +101,7 @@ class User extends Authenticatable
     */
     public function hasAnyRole($roles)
     {
-        return null !== $this->role()->whereIn('name', $roles)->first();
+        return null !== $this->roles()->whereIn('name', $roles)->first();
     }
     /**
     * Check one role
@@ -109,7 +109,7 @@ class User extends Authenticatable
     */
     public function hasRole($role)
     {
-        return null !== $this->role()->where('name', $role)->first();
+        return null !== $this->roles()->where('name', $role)->first();
     }
 
     

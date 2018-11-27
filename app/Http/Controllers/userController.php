@@ -24,10 +24,11 @@ class userController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($noGuest = null)
     {
-        return view('user.register');
+        return view('user.register', compact('noGuest'));
     }
+
     
 
     /**
@@ -50,7 +51,10 @@ class userController extends Controller
             'password' =>  Hash::make($request['password']),
             'email' => $request->input("email")
         ]);
-            $successfullyLogin = 'User Created Successfully';
+
+        $user->save();
+
+        $successfullyLogin = 'User Created Successfully';
         return view('user.login', compact('successfullyLogin'));
     }
 

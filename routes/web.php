@@ -21,7 +21,7 @@ Auth::routes();
 
 //----------------- NON AUTH
 Route::middleware(['isGuest'])->group(function () {
-    Route::get('/user/register', 'userController@create')->name('user.register');
+    Route::get('/user/register/{noGuest?}', 'userController@create')->name('user.register');
     Route::post('/user/store', 'userController@store')->name('user.store');
     Route::get('/user/login', function(){return view('user.login');})->name('user.login');
 
@@ -43,8 +43,12 @@ Route::middleware(['guestRedirect'])->group(function () {
         Route::middleware(['player'])->group(function () {
         
         });
+        
+        Route::get('/matches', 'matchController@index')->name('match.index');
+
     });
 
+    Route::get('/matches', 'matchController@index')->name('match.index');
     Route::get('/chooseRole', 'chooseRole@create')->name('chooseRole.create');
     Route::post('/chooseRole/store', 'chooseRole@store')->name('chooseRole.store');
 

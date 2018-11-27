@@ -11,14 +11,14 @@
         </div>
         
         <div class="pretty p-switch">
-            <input type="radio" name="role" value="owner"/>
+            <input type="radio" name="role" value="1"/>
             <div class="state p-success">
                 <label>Owner</label>
             </div>
         </div>
         
         <div class="pretty p-switch p-fill">
-            <input type="radio" name="role" value="player"/>
+            <input type="radio" name="role" value="2"/>
             <div class="state p-success">
                 <label>Player</label>
             </div>

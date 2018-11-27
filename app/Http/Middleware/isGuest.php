@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
+use Illuminate\Support\Facades\Auth;
 
 use Closure;
 
@@ -18,6 +19,6 @@ class isGuest
         if(!Auth::user()){
             return $next($request);    
         }
-        return redirect(route('home'));
+        return redirect(route('/'));
     }
 }

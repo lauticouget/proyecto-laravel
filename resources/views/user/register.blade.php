@@ -1,9 +1,19 @@
+@php
+    dd($NoGuest)
+@endphp
 @extends('layouts.master')
 
 @section('content')
 
 <div class="container">
-    <div class="jumbotron">
+    <div class=>
+        
+        @if (isset($NoGuest))
+            <div class="row main">
+                <span class="alert alert-warning">{{ $NoGuest }}</span>
+            </div>
+        @endif
+        
         <div class="row main"> 
             <div class="main-login main-center">
                 <form class="form-horizontal" method="post" action="{{ route('user.store') }}">
