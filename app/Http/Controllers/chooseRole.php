@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Field;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
-class fieldController extends Controller
+class chooseRole extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,7 @@ class fieldController extends Controller
      */
     public function index()
     {
-        $fields = Field::paginate(5);
-        return view('admin.fields', compact('fields'));
+        //
     }
 
     /**
@@ -25,7 +25,7 @@ class fieldController extends Controller
      */
     public function create()
     {
-        //
+        return view('chooseRole.create');
     }
 
     /**
@@ -36,7 +36,14 @@ class fieldController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validatedData = $request->validate([
+            'role' => 'required|',
+        ]);
+
+        Auth::user()->roles()->attach($request->input('role'));
+        $role = Auth::user()->roles()->first()->name.' Role Picked Successfully.';
+        return view('/home')->with(compact('role'));
     }
 
     /**
@@ -70,8 +77,24 @@ class fieldController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'role' => 'required',
+        ]);
+
+        $user = Auth::user();
+
+        $user->role = $request->input('role');
+
+
+        $user->save();
+
+        if($user->role()->name == 'owner'){
+            return redirect()->route('owner.register');
+        }else{
+            return redirect()->route('player.register');
+        }
     }
+
 
     /**
      * Remove the specified resource from storage.

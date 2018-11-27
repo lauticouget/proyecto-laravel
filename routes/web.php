@@ -11,17 +11,61 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+
+
+//----------------- Guest/User(ALL) 
+
+Route::get('/', 'HomeController@home')->name('home');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//----------------- NON AUTH
+Route::middleware(['isGuest'])->group(function () {
+    Route::get('/user/register/{noGuest?}', 'userController@create')->name('user.register');
+    Route::post('/user/store', 'userController@store')->name('user.store');
+    Route::get('/user/login', function(){return view('user.login');})->name('user.login');
 
-Route::get('/home/avg/{id}', 'HomeController@avg');
-Route::get('/calendar', 'calendarController@index')->name('calendar.index');
-Route::post('/calendar/test', 'calendarController@store')->name('calendar.test');
+  
+    Route::get('/login', '\App\Http\Controllers\Auth\LoginController@login');
+});
 
-Route::get('/test', 'testController@navBar');
-Route::get('/test/allall', 'testController@allEntities');
+
+
+
+
+Route::middleware(['guestRedirect'])->group(function () {
+
+    Route::middleware(['chooseRole'])->group(function () {
+
+        Route::middleware(['owner'])->group(function () {
+        
+        });
+        Route::middleware(['player'])->group(function () {
+        
+        });
+        
+        Route::get('/matches', 'matchController@index')->name('match.index');
+
+    });
+
+    Route::get('/matches', 'matchController@index')->name('match.index');
+    Route::get('/chooseRole', 'chooseRole@create')->name('chooseRole.create');
+    Route::post('/chooseRole/store', 'chooseRole@store')->name('chooseRole.store');
+
+
+    Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
