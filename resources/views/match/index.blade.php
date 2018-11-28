@@ -20,12 +20,10 @@
             <tbody>
                 <tr>
                     <th scope="row">{{ $match->id }}</th>
-                    @php
-                        dd($match->team1()->name)
-                    @endphp
-                    <td>{{ $match->team }}</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>{{ $match->team1()->name }}</td>
+                    <td>{{ $match->team2()->name }}</td>
+                    <td> 2-0</td>
+                    <td>{{ $match->field()->name }}</td>
                 </tr>
             </tbody>
             @endforeach

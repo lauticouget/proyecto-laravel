@@ -26,6 +26,7 @@ class userController extends Controller
      */
     public function create($noGuest = null)
     {
+      
         return view('user.register', compact('noGuest'));
     }
 

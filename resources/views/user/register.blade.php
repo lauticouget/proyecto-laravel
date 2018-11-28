@@ -1,6 +1,3 @@
-@php
-    dd($NoGuest)
-@endphp
 @extends('layouts.master')
 
 @section('content')
@@ -8,9 +5,9 @@
 <div class="container">
     <div class=>
         
-        @if (isset($NoGuest))
+        @if (isset($noGuest))
             <div class="row main">
-                <span class="alert alert-warning">{{ $NoGuest }}</span>
+                <span class="alert alert-warning">{{ $noGuest }}</span>
             </div>
         @endif
         
@@ -65,7 +62,7 @@
                         <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
                     </div>
                     <div class="login-register">
-                        <a href="/login">Login</a>
+                        <a href="{{ route('user.login') }}">Login</a>
                     </div>
                 </form>
             </div>

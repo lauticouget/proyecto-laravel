@@ -8,5 +8,6 @@ $factory->define(App\Field::class, function (Faker $faker) {
         'adress' => $faker->streetAddress,
         'photopath' => $faker->imageUrl($width = 640, $height = 480),
         'user_id' => $faker->numberBetween($min = 1, $max = 20),
+        'name' => 'Canchitas '.$faker->lastname(),
     ];
 });

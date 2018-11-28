@@ -48,7 +48,6 @@ Route::middleware(['guestRedirect'])->group(function () {
 
     });
 
-    Route::get('/matches', 'matchController@index')->name('match.index');
     Route::get('/chooseRole', 'chooseRole@create')->name('chooseRole.create');
     Route::post('/chooseRole/store', 'chooseRole@store')->name('chooseRole.store');
 
