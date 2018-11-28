@@ -17,6 +17,7 @@ class CreateFieldsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
+            $table->string('name');
             $table->string('location');
             $table->string('adress');
             $table->string('photopath');

@@ -3,8 +3,9 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
+    <nav class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
+        
             {{-- Guest Nav Items --}}
                 @guest
                 <li class="nav-item dropdown">
@@ -20,7 +21,7 @@
            
             @auth
             {{-- User Nav Items --}}
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->first_name }}</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown1">
                         <li class="dropdown-item" href="#"><a href ="{{ url('/logout') }}">Log Out</a></li>
@@ -40,7 +41,7 @@
                 </li>
             {{--  Owner Nav Items--}}
                 @if (Auth::User()->hasRole('player'))
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown ">
                         <a class="nav-link dropdown-toggle" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown2</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown2">
                             <li class="dropdown-item" href="#"><a>Action 2 A</a></li>
@@ -110,6 +111,11 @@
                     </li>
                 @endif
             @endauth
+
+            {{-- General Nav Items --}}
+                <li class="nav-item active dropdown">
+                    <a class="nav-link" href="{{ route('match.index') }}">Matches!</a>
+                </li>
                 
             
             
@@ -118,5 +124,5 @@
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-    </div>
+    </nav>
 </div>

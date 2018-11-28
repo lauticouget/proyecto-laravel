@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Team;
+use App\Field;
 
 class Match extends Model
 {
@@ -18,5 +19,15 @@ class Match extends Model
         return $team;
     }
 
-    
+    public function team2()
+    {
+        $team = Team::find($this->team2_id);
+        return $team;
+    }
+
+    public function field()
+    {
+        $field = Field::find($this->field_id);
+        return $field;
+    }
 }
