@@ -13,6 +13,7 @@ class Match extends Model
     {
         $this->hasMany(Team::class);
     }
+    
     public function guests()
     {
         return $this->hasOne(Guests::class);
