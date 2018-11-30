@@ -34,7 +34,6 @@ class Match extends Model
         return $field;
     }
 
-    
    
 
     // GUESTS -------------------------------
