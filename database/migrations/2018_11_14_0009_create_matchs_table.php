@@ -17,7 +17,10 @@ class CreateMatchsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->integer('guests_id')->unsigned();
+            
+
+            $table->dateTime('date');
+
             $table->integer('team1_id')->unsigned();
             $table->integer('team2_id')->unsigned();
 
@@ -26,8 +29,17 @@ class CreateMatchsTable extends Migration
 
             $table->integer('field_id')->unsigned();
             $table->foreign('field_id')->references('id')->on('fields')->change();
-            $table->foreign('guests_id')->references('id')->on('guests')->change();
 
+            $table->integer('guest1_id')->unsigned()->nullable();
+            $table->integer('guest2_id')->unsigned()->nullable();
+            $table->integer('guest3_id')->unsigned()->nullable();
+            $table->integer('guest4_id')->unsigned()->nullable();
+            $table->integer('guest5_id')->unsigned()->nullable();
+            $table->integer('guest6_id')->unsigned()->nullable();
+            $table->integer('guest7_id')->unsigned()->nullable();
+            $table->integer('guest8_id')->unsigned()->nullable();
+            $table->integer('guest9_id')->unsigned()->nullable();
+ 
             
         });
     }

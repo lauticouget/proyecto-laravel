@@ -11,9 +11,10 @@ class Guests extends Model
     {
         return $this->belongsTo(Match::class);
     }
-
-    public function guest1()
+    public function guest()
     {
-        return $this->hasOne(User::class);
+        return $this->hasMany(User::class);
     }
+
+    
 }
