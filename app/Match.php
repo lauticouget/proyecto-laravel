@@ -5,12 +5,17 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Team;
 use App\Field;
+use App\Guests;
 
 class Match extends Model
 {
     public function team()
     {
         $this->hasMany(Team::class);
+    }
+    public function guests()
+    {
+        return $this->hasOne(Guests::class);
     }
 
     public function team1()
